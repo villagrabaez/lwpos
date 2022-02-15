@@ -230,7 +230,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'buscar',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
