@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\{
+  CategoryController,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::resource('/usuarios', UserController::class)
   ->names('usuarios');
+
+Route::get('/categorias', CategoryController::class)
+  ->name('categorias');

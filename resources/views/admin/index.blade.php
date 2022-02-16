@@ -57,11 +57,16 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <h5 class="modal-title">
+          {{-- <b> {{ $componentName }} </b> | {{ $selected_id > 0 ? 'EDITAR' : 'CREAR' }} --}}
+        </h5>
+        <h6 class="text-center text-warning" wire:loading>
+          Por favor espere.
+        </h6>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -70,8 +75,16 @@
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" wire:click.prevent="resetUI()">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
+
+        {{-- <button type="button" class="btn btn-secondary close-btn" wire:click.prevent="resetUI()" data-dismiss="modal">Cerrar</button>
+
+        @if($selected_id < 1)
+          <button type="button" class="btn btn-secondary close-modal" wire:click.prevent="Store()">Crear</button>
+        @else
+        <button type="button" class="btn btn-secondary close-modal" wire:click.prevent="Update()">Actualizar</button>
+        @endif --}}
       </div>
     </div>
   </div>
